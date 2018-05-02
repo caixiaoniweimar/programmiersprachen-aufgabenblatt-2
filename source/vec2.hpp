@@ -24,3 +24,4 @@ struct Vec2{  //struct erlaubt nicht _(keine Membervariablen)
     Vec2 operator* (float s, Vec2 const& v);
 
 #endif
+   
