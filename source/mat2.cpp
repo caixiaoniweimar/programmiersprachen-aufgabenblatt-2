@@ -1,5 +1,5 @@
 #include "mat2.hpp"
-//Aufgabe 2.6
+//Aufgabe 2.5
 Mat2::Mat2():			// Mat2::Mat2():
     arr{ { 1.0, 0.0, 0.0, 1.0 } } {} // arr{ {a,b,c,d} } {}
 
@@ -8,7 +8,6 @@ Mat2::Mat2(double a, double b, double c, double d):
 
 Mat2& Mat2::operator*=(Mat2 const& m){ // m: jede Objekt hat eigene Array
 //    m:Objekt     Array: Zustand von Objekt
-
 	double a = arr[0]*m.arr[0]+arr[1]*m.arr[2];
 	double b = arr[0]*m.arr[1]+arr[1]*m.arr[3];
 	double c = arr[2]*m.arr[0]+arr[3]*m.arr[2];
@@ -18,10 +17,8 @@ Mat2& Mat2::operator*=(Mat2 const& m){ // m: jede Objekt hat eigene Array
     arr[2]= c;
     arr[3]= d;
     return *this;
-
 }
-
-Mat2 operator* (Mat2 const& m1, Mat2 const& m2){
+Mat2 operator* (Mat2 const& m1, Mat2 const& m2){ 
 	Mat2 result(m1);
 	double a = result.arr[0]*m2.arr[0] + result.arr[1]*m2.arr[2];
 	double b = result.arr[0]*m2.arr[1] + result.arr[1]*m2.arr[3];
@@ -33,3 +30,43 @@ Mat2 operator* (Mat2 const& m1, Mat2 const& m2){
 	result.arr[3]=d;
 	return result;
 }
+//Aufgabe 2.6
+/*float det() const{     //im struct Mat2{};
+
+}*/
+/*Vec2 operator* (Mat2 const& m, Vec2 const& v){
+
+}
+Vec2 operator* (Mat2 const& v, Vec2 const& m){
+
+}*/
+Mat2 inverse(Mat2 const& m){
+
+}
+Mat2 transpose (Mat2 const& m){
+     Mat2 result;
+     double a=m.arr[0];
+     double b=m.arr[1];
+     double c=m.arr[2];
+     double d=m.arr[3];
+     result.arr[0]=a;
+     result.arr[1]=c;
+     result.arr[2]=b;
+     result.arr[3]=d;
+     return result;
+}
+Mat2 make_rotation_mat2(float phi){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
