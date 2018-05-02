@@ -27,7 +27,7 @@ TEST_CASE ("test_operator+=","[operator+=]"){ // operator+=
     Vec2 v2{2.0f,3.0f};
     Vec2 v3{3.0f,4.0f};
 
-    v1 += v2;
+    v1 += v2;     
     REQUIRE( v1.x == 2.0f );
     REQUIRE( v1.y == 3.0f );
     v1 += v3;
