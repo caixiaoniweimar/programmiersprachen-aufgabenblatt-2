@@ -17,7 +17,7 @@ Vec2& Vec2::operator+= (Vec2 const& v){ //Memberfunktionen!! Vec2& Vec2::
 }
 Vec2& Vec2::operator-= (Vec2 const& v){
 	x -= v.x;
-	y -= v.y;
+	y -= v.y;       
 	return *this;
 }
 Vec2& Vec2::operator*= (float s){

@@ -15,12 +15,12 @@ struct Vec2{  //struct erlaubt nicht _(keine Membervariablen)
 	Vec2& operator*= (float s);  
 	Vec2& operator/= (float s); 	
 };
-//Aufgabe 2.4
+//Aufgabe 2.4       
 // keine Memberfunktion D,h außer struct{};
     Vec2 operator+ (Vec2 const& u, Vec2 const& v);
     Vec2 operator- (Vec2 const& u, Vec2 const& v);
     Vec2 operator* (Vec2 const& v, float s);
     Vec2 operator/ (Vec2 const& v, float s);
     Vec2 operator* (float s, Vec2 const& v);
-    
+
 #endif
