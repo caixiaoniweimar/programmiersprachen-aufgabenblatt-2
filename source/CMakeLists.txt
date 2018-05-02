@@ -24,7 +24,7 @@ add_executable(tests
 target_link_libraries(tests
   glfw
   ${GLFW_LIBRARIES}
-  nanovg
+  nanovg.  
   ${OPENGL_LIBRARIES}
   )
 

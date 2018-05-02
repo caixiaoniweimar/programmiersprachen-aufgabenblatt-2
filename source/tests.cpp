@@ -3,13 +3,6 @@
 #include <iostream>
 #include "vec2.hpp"
 #include "mat2.hpp"
-// Test-Aufgabe 2.5
-TEST_CASE ("test_einheitmatrix","[einheitmatrix]"){ //Einheitmatrix
-    REQUIRE(Mat2().arr[0]==1);
-    REQUIRE(Mat2().arr[1]==0);
-    REQUIRE(Mat2().arr[2]==0);
-    REQUIRE(Mat2().arr[3]==1);
-}
 // Test-Aufgabe 2.2
 TEST_CASE ("test_standardkonstruktor","[standardkonstruktor]"){ //Standardkonstruktor
     Vec2 v1;
@@ -134,6 +127,36 @@ TEST_CASE ("test_operator*s,v","[operator*s,v]"){
     REQUIRE( (2*v2).x == 4.0f );
     REQUIRE( (2*v3).x == 6.0f );
     REQUIRE( (2*v3).y == 18.0f );
+}
+// Test-Aufgabe 2.5
+TEST_CASE ("test_einheitmatrix","[einheitmatrix]"){ //Einheitmatrix
+    REQUIRE(Mat2().arr[0]==1);
+    REQUIRE(Mat2().arr[1]==0);
+    REQUIRE(Mat2().arr[2]==0);
+    REQUIRE(Mat2().arr[3]==1);
+}
+//Test-Aufgabe 2.6
+TEST_CASE ("test_matrix*","[matrix*]"){
+    Mat2 m1{1,2,3,4};
+    Mat2 m2{1,1,1,1};
+    Mat2 m3{0,0,0,0};
+    m1 *= m2;
+    m3 *= m2;
+    REQUIRE(m1.arr[0]==3);
+    REQUIRE(m1.arr[1]==3);
+    REQUIRE(m1.arr[2]==7);
+    REQUIRE(m1.arr[3]==7);
+    REQUIRE(m3.arr[0]==0);
+    REQUIRE(m3.arr[1]==0);
+}
+TEST_CASE ("test_matrix2","[matrix2]"){
+    Mat2 m1{1,2,3,4};
+    Mat2 m2{1,1,1,1};
+    Mat2 m3=m1 * m2;
+    REQUIRE(m3.arr[0]==3);
+    REQUIRE(m3.arr[1]==3);
+    REQUIRE(m3.arr[2]==7);
+    REQUIRE(m3.arr[3]==7);
 }
 int main(int argc, char *argv[])
 {
