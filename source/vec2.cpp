@@ -29,7 +29,7 @@ Vec2& Vec2::operator/= (float s){
 	if(s==0){
 		x=0.0f;
 		y=0.0f;
-		std::cout<<"Fehler!"<<std::endl;
+		std::cout<<"Fehler! Vector kann nicht durch 0."<<std::endl;
 	}
 	else{
 		x/=s;
@@ -58,7 +58,7 @@ Vec2 operator/(Vec2 const& v, float s){
 	if(s==0){
         result.x=0;             // muss x,y getrennt definiert
         result.y=0;
-		std::cout<<"Fehler!"<<std::endl;
+		std::cout<<"Fehler! Vector kann nicht durch 0."<<std::endl;
 	}
 	else{
 		result/=s;
@@ -68,7 +68,16 @@ Vec2 operator/(Vec2 const& v, float s){
 Vec2 operator*(float s, Vec2 const& v){
     return v*s;                // einfach v*s, operator keine Funktion, * ist schon definiert
 }
-
+//Aufgabe 2.6
+ /* 2 */ Vec2 operator* (Mat2 const& m, Vec2 const& v) {
+   			Vec2 result;
+    		result.x=m.arr[0]*v.x+m.arr[1]*v.y;
+    		result.y=m.arr[2]*v.x+m.arr[3]*v.y;
+    		return result;
+}
+ /* 3 */ Vec2 operator* (Vec2 const& v, Mat2 const& m) {
+    		return m*v;
+}
 
 
 

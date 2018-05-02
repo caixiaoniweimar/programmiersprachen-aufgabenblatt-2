@@ -1,5 +1,6 @@
 #ifndef VEC2_HPP
 #define VEC2_HPP
+#include "mat2.hpp"
 
 struct Vec2{  //struct erlaubt nicht _(keine Membervariablen)
 
@@ -23,5 +24,9 @@ struct Vec2{  //struct erlaubt nicht _(keine Membervariablen)
     Vec2 operator/ (Vec2 const& v, float s);
     Vec2 operator* (float s, Vec2 const& v);
 
+ //Aufgabe 2.6
+ /* 2 */   Vec2 operator*(Mat2 const& m, Vec2 const& v);
+ /* 3 */   Vec2 operator*(Vec2 const& v, Mat2 const& m);
+    
 #endif
    
