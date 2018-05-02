@@ -135,7 +135,6 @@ TEST_CASE ("test_einheitmatrix","[einheitmatrix]"){ //Einheitmatrix
     REQUIRE(Mat2().arr[2]==0);
     REQUIRE(Mat2().arr[3]==1);
 }
-//Test-Aufgabe 2.6
 TEST_CASE ("test_matrix*","[matrix*]"){
     Mat2 m1{1,2,3,4};
     Mat2 m2{1,1,1,1};
@@ -158,6 +157,28 @@ TEST_CASE ("test_matrix2","[matrix2]"){
     REQUIRE(m3.arr[2]==7);
     REQUIRE(m3.arr[3]==7);
 }
+// Test-Aufgabe 2.6
+TEST_CASE ("test_transpose","[transpose]"){
+    Mat2 m1{1,2,3,4};
+    Mat2 m2{1,1,1,1};
+    Mat2 m1_trans = transpose(m1);
+    REQUIRE(m1.arr[0]==1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
