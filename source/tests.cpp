@@ -158,13 +158,61 @@ TEST_CASE ("test_matrix2","[matrix2]"){
     REQUIRE(m3.arr[3]==7);
 }
 // Test-Aufgabe 2.6
+TEST_CASE ("test_det","[det]"){
+    Mat2 m1{1,2,3,4};
+    Mat2 m2{1,1,1,1};
+    Mat2 m3{12,-2,1,1};
+    float m1_det = m1.det();
+    float m2_det = m2.det();
+    float m3_det = m3.det();
+    REQUIRE( m1_det == -2);
+    REQUIRE( m2_det == 0 );
+    REQUIRE( m3_det == 14 );
+
+}
+TEST_CASE("test_vektor*Matrix","[vektor*Matrix]"){
+    Mat2 m1{80,90,60,85};
+    Vec2 v1{0.4, 0.6};
+    Vec2 v1_m1 = v1*m1;
+    Vec2 m1_v1 = m1*v1;
+    REQUIRE(v1_m1.x==86);
+    REQUIRE(v1_m1.y==75);
+    REQUIRE(m1_v1.x==86);
+    REQUIRE(m1_v1.y==75);
+}
+TEST_CASE ("test_inverse","[inverse]"){
+    Mat2 m1{1,2,3,4};
+    Mat2 m2{1,1,1,1};
+    Mat2 m1_inver = inverse(m1);
+    Mat2 m2_inver = inverse(m2);
+    REQUIRE(m1_inver.arr[0]==-2);
+    REQUIRE(m1_inver.arr[1]==1);
+    REQUIRE(m1_inver.arr[2]==1.5);
+    REQUIRE(m1_inver.arr[3]==-0.5);
+    REQUIRE(m2_inver.arr[0]==0);
+}
 TEST_CASE ("test_transpose","[transpose]"){
     Mat2 m1{1,2,3,4};
     Mat2 m2{1,1,1,1};
     Mat2 m1_trans = transpose(m1);
-    REQUIRE(m1.arr[0]==1);
+    REQUIRE(m1_trans.arr[0]==1);
+    REQUIRE(m1_trans.arr[1]==3);
+    REQUIRE(m1_trans.arr[2]==2);
+    REQUIRE(m1_trans.arr[3]==4);
 }
+TEST_CASE ("test_rotationmatrix","[rotationmatrix]"){
+    Mat2 m1 = make_rotation_mat2(30);
+    Mat2 m2 = make_rotation_mat2(60);
+    REQUIRE(m1.arr[0]== Approx(0.8660254).epsilon(0.01));
+    REQUIRE(m1.arr[1]== Approx(-0.50).epsilon(0.01));
+    REQUIRE(m1.arr[2]== Approx(0.50).epsilon(0.01));
+    REQUIRE(m1.arr[3]== Approx(0.8660254).epsilon(0.01));
 
+    REQUIRE(m2.arr[0]== Approx(0.50).epsilon(0.01));
+    REQUIRE(m2.arr[1]== Approx(-0.8660254).epsilon(0.01));
+    REQUIRE(m2.arr[2]== Approx(0.8660254).epsilon(0.01));
+    REQUIRE(m2.arr[3]== Approx(0.50).epsilon(0.01));
+}
 
 
 
