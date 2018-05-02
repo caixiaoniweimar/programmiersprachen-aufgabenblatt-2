@@ -3,9 +3,10 @@
 #include <array>  // wichtig!! Vergessen nicht!
 #include "vec2.hpp"
 
-	std::array<double, 4> arr; // wichtig Syntax std::array<Datentypen, Zahlen> name;
+
 struct Mat2{
 //Aufgabe 2.5
+	std::array<double, 4> arr; // wichtig Syntax std::array<Datentypen, Zahlen> name;
 	Mat2();  // Standardkonstruktor
  	
  	Mat2(double a, double b, double c, double d); //User-Konstruktor
