@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
     std::string text = "mouse position: (" + std::to_string(m.first) + ", " + std::to_string(m.second) + ")";
     win.draw_text(10, 5, 35.0f, text);
 
-// Aufgabe 1.11 - draw rectangle
+// Aufgabe 1.11 - draw circle
 
     Circle(c1);
     Vec2 center1{400,400};
@@ -55,9 +55,8 @@ int main(int argc, char* argv[])
     c1.set_radius(280.0);
     c1.draw(win);
 
-
 //  Aufgabe 1.11 - draw rectangle
-    
+
     Rectangle(r1);
     Vec2 max{550,500};
     Vec2 min{250,300};
@@ -65,6 +64,23 @@ int main(int argc, char* argv[])
     r1.set_Min(min);
     r1.draw(win);
 
+// Aufgabe 1.12 - draw circle red
+
+    Circle(c2);
+    Color red{1.0,0.0,0.0};
+    Vec2 center2{400,400};
+    c2.set_center(center2);
+    c2.set_radius(200.0);
+    c2.draw(win,red);
+
+//  Aufgabe 1.12 - draw rectangle red
+
+    Rectangle(r2);
+    Vec2 max2{350,350};
+    Vec2 min2{450,450};
+    r2.set_Max(max2);
+    r2.set_Min(min2);
+    r2.draw(win,red);
     win.update();
 }
 
