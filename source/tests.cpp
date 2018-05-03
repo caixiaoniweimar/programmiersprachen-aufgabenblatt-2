@@ -244,8 +244,7 @@ TEST_CASE ("test_rectangle","[rectangle]") {
     REQUIRE(r2.get_Length()==Approx(2.8).epsilon(0.01));
     REQUIRE(r2.get_Height()==Approx(4.5).epsilon(0.01));
     REQUIRE(r2.circumference()==Approx(14.6).epsilon(0.01));
-    REQUIRE(r1.circumference()==4.0);
-
+    REQUIRE(r1.circumference()==4.0);     
 }
 //Test-Aufgabe 2.9
 

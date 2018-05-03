@@ -22,5 +22,5 @@ add_executable(tests
   vec2.cpp
   mat2.cpp
   circle.cpp
-  rectangle.cpp
+  rectangle.cpp.   
   )
