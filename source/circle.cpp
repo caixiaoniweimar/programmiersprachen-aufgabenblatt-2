@@ -1,12 +1,24 @@
 #include "circle.hpp"
+#include <iostream>
+#include "window.hpp"
+#include <cmath>
+
 #define PI 3.1415926 // kein "="
+
 Circle::Circle():    //Konstruktor Circle::Circle klassenName::KonstruktorName
 	radius_{1.0},
-	center_{0.0, 0.0} {}
+	center_{0.0, 0.0},
+	color_{0.0,0.0,0.0} {}
 
 Circle::Circle(Circle const& c):
 	radius_{c.radius_},
-	center_{c.center_} {}
+	center_{c.center_},
+	color_ {c.color_}   {}
+
+Circle::Circle(Vec2 const& cen, double rad, Color const& col):
+	radius_{rad},
+	center_{cen},
+	color_{col}  {}
 	
 // Eigenschaft: Center
 	Vec2 Circle::get_center() const{  //方法前面Circle:: 类/Struct名
@@ -37,5 +49,31 @@ Circle::Circle(Circle const& c):
 	double Circle::circumference() const {
 		return  PI*2*radius_;
 	}    
+// Aufgabe 2.11 draw-Methode	
+void Circle::draw(Window const& win) const{
 
+    for(int a=1000;a>0;a=a-0.1){
+      double x5{center_.x + radius_ * std::sin(win.get_time()-a)};
+      double y5{center_.y + radius_ * std::cos(win.get_time()-a)};
+       win.draw_point(x5, y5, 1.0f, 1.0f, 0.0f);
+    }
+
+}
 Circle::~Circle(){ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

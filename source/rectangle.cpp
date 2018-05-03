@@ -1,4 +1,7 @@
 #include "rectangle.hpp"
+#include "vec2.hpp"
+#include "window.hpp"
+#include <iostream>
 
 Rectangle::Rectangle():
     max_{ 1.0, 1.0 },
@@ -38,4 +41,18 @@ Rectangle::Rectangle(Vec2 const& max, Vec2 const& min, Color const& col):
     double Rectangle::circumference() const{
     	return 2*(max_.x - min_.x)+2*(max_.y - min_.y);
     }
-Rectangle::~Rectangle() {}    
+
+// Aufgabe 2.11 draw-Methode    
+    void Rectangle::draw(Window const& win) const{
+        win.draw_line(min_.x, min_.y, max_.x, min_.y, 1.0, 0.0, 1.0);
+        win.draw_line(min_.x, min_.y, min_.x, max_.y, 1.0, 0.0, 1.0);
+        win.draw_line(min_.x, max_.y, max_.x, max_.y, 1.0, 0.0, 1.0);
+        win.draw_line(max_.x, max_.y, max_.x, min_.y, 1.0, 0.0, 1.0);
+    }
+
+Rectangle::~Rectangle() {}  
+
+
+
+
+

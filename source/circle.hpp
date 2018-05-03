@@ -2,6 +2,7 @@
 #define CIRCLE_HPP
 #include "vec2.hpp"
 #include "color.hpp"
+#include "window.hpp"
 
 class Circle{
 	public:
@@ -26,8 +27,10 @@ class Circle{
 		// Eigenschaft: circumference
 		double circumference() const;
 
-		~Circle();
+		// draw Methode
+		void draw(Window const& win) const;
 
+		~Circle();
 
 	private:
 		double radius_;   

@@ -2,6 +2,7 @@
 #define RECTANGLE_HPP
 #include "vec2.hpp"
 #include "color.hpp"
+#include "window.hpp"
 
 class Rectangle
 {
@@ -23,9 +24,12 @@ public:
     // Eigenschaft: circumference
     double circumference() const;
 
+    // draw Methode
+    void draw(Window const& win) const;
+
 	~Rectangle();
 
-private:
+public:
 	Vec2 max_;
 	Vec2 min_; 
 	Color color_;   
