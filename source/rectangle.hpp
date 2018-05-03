@@ -24,12 +24,15 @@ public:
     // Eigenschaft: circumference
     double circumference() const;
 
-    // draw Methode
+    // draw Methode - Aufgabe 2.11
     void draw(Window const& win) const;
+
+    // draw Methode - Aufgabe 2.12
+    void draw(Window const& win, Color const& col) const;
 
 	~Rectangle();
 
-public:
+private:
 	Vec2 max_;
 	Vec2 min_; 
 	Color color_;   

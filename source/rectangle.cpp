@@ -50,6 +50,13 @@ Rectangle::Rectangle(Vec2 const& max, Vec2 const& min, Color const& col):
         win.draw_line(max_.x, max_.y, max_.x, min_.y, 1.0, 0.0, 1.0);
     }
 
+// Aufgabe 2.11 draw-Methode    
+    void Rectangle::draw(Window const& win, Color const& col) const{
+        win.draw_line(min_.x, min_.y, max_.x, min_.y, col.r, col.h, col.g);
+        win.draw_line(min_.x, min_.y, min_.x, max_.y, col.r, col.h, col.g);
+        win.draw_line(min_.x, max_.y, max_.x, max_.y, col.r, col.h, col.g);
+        win.draw_line(max_.x, max_.y, max_.x, min_.y, col.r, col.h, col.g);
+    }
 Rectangle::~Rectangle() {}  
 
 

@@ -57,8 +57,16 @@ void Circle::draw(Window const& win) const{
       double y5{center_.y + radius_ * std::cos(win.get_time()-a)};
        win.draw_point(x5, y5, 1.0f, 1.0f, 0.0f);
     }
-
 }
+// Aufgabe 2.12 draw-Methode
+void Circle::draw(Window const& win, Color const& col) const{
+	for(int a=1000;a>0;a=a-0.1){
+      double x5{center_.x + radius_ * std::sin(win.get_time()-a)};
+      double y5{center_.y + radius_ * std::cos(win.get_time()-a)};
+      win.draw_point(x5, y5, col.r, col.h, col.g);
+    }
+}
+
 Circle::~Circle(){ }
 
 

@@ -27,8 +27,11 @@ class Circle{
 		// Eigenschaft: circumference
 		double circumference() const;
 
-		// draw Methode
+		// draw Methode - Aufgabe 2.11 
 		void draw(Window const& win) const;
+
+		// draw Methode - Aufgabe 2.12
+		void draw(Window const& win, Color const& col) const;
 
 		~Circle();
 
