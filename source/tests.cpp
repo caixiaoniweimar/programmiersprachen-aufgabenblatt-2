@@ -3,6 +3,8 @@
 #include <iostream>
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include "circle.hpp"
+#include "rectangle.hpp"
 // Test-Aufgabe 2.2
 TEST_CASE ("test_standardkonstruktor","[standardkonstruktor]"){ //Standardkonstruktor
     Vec2 v1;
@@ -213,6 +215,50 @@ TEST_CASE ("test_rotationmatrix","[rotationmatrix]"){
     REQUIRE(m2.arr[2]== Approx(0.8660254).epsilon(0.01));
     REQUIRE(m2.arr[3]== Approx(0.50).epsilon(0.01));
 }
+//Test-Aufgabe 2.8
+TEST_CASE ("test_circle","[circle]"){
+    Circle c1;
+    Circle(c2);
+    Vec2 center2{1.0,1.0};    //Funktion/Konstruktor: Objekt erzeugen 
+    Vec2 center1{0.0,0.0};
+    c2.set_center(center2);  //Methode name(Uebergabeparamter)
+    c2.set_radius(3.0);
+    REQUIRE(c1.get_radius()==1.0);
+    REQUIRE(c1.get_center().y==0.0);
+    REQUIRE(c2.get_radius()==3.0);
+    REQUIRE(c2.get_center().x==1.0);
+    REQUIRE(c2.diameter()==6.0);
+    REQUIRE(c2.area()==Approx(28.2743).epsilon(0.01));
+    REQUIRE(c2.circumference()==Approx(18.85).epsilon(0.01));
+    REQUIRE(c1.circumference()==Approx(6.28).epsilon(0.01));
+}
+TEST_CASE ("test_rectangle","[rectangle]") {
+    Rectangle r1;
+    Rectangle r2(r1);
+    Vec2 max2{6.5,4.9};
+    Vec2 min2{3.7,0.4};
+    r2.set_Max(max2);
+    r2.set_Min(min2);
+    REQUIRE(r1.get_Length()==1.0);
+    REQUIRE(r1.get_Height()==1.0);
+    REQUIRE(r2.get_Length()==Approx(2.8).epsilon(0.01));
+    REQUIRE(r2.get_Height()==Approx(4.5).epsilon(0.01));
+    REQUIRE(r2.circumference()==Approx(14.6).epsilon(0.01));
+    REQUIRE(r1.circumference()==4.0);
+
+}
+//Test-Aufgabe 2.9
+
+
+
+
+
+
+
+
+
+
+
 
 
 
