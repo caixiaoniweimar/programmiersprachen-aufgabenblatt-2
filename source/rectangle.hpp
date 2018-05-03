@@ -1,12 +1,14 @@
 #ifndef RECTANGLE_HPP
 #define RECTANGLE_HPP
 #include "vec2.hpp"
+#include "color.hpp"
 
 class Rectangle
 {
 public:
 	Rectangle();					//StandardKonstruktor
 	Rectangle(Rectangle const& r);  //Konstruktor
+	Rectangle(Vec2 const& max, Vec2 const& min, Color const& col);//Konstruktor
 
     // Eigenschaft: Length+Height
     void set_Min(Vec2 const& min);
@@ -25,7 +27,8 @@ public:
 
 private:
 	Vec2 max_;
-	Vec2 min_;    
+	Vec2 min_; 
+	Color color_;   
 
 };
 #endif

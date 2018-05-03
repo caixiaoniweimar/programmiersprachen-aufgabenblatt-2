@@ -1,11 +1,13 @@
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
 #include "vec2.hpp"
+#include "color.hpp"
 
 class Circle{
 	public:
 		Circle();   //StandardKonstruktor
 		Circle(Circle const& c);  //Konstruktor
+		Circle(Vec2 const& cen, double rad, Color const& col); //Konstruktor
 		
 		// Eigenschaft: Center
 		Vec2 get_center() const;
@@ -30,6 +32,7 @@ class Circle{
 	private:
 		double radius_;   
 		Vec2 center_;
+		Color color_;
 };
 //immer vergessen #endif Error!
 #endif 

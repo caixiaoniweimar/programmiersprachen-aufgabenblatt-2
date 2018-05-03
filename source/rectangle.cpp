@@ -2,11 +2,18 @@
 
 Rectangle::Rectangle():
     max_{ 1.0, 1.0 },
-    min_{ 0.0, 0.0 } {}
+    min_{ 0.0, 0.0 },
+    color_{ 0.0, 0.0, 0.0} {}
 
 Rectangle::Rectangle(Rectangle const& r):
 	max_{r.max_},
-	min_{r.min_} {}
+	min_{r.min_},
+	color_{r.color_} {}
+
+Rectangle::Rectangle(Vec2 const& max, Vec2 const& min, Color const& col):
+	max_{max},
+	min_{min},
+	color_{col} {}
 
 // Eigenschaft: Length+Height
     void Rectangle::set_Min(Vec2 const& min){
