@@ -31,4 +31,4 @@ Rectangle::Rectangle(Rectangle const& r):
     double Rectangle::circumference() const{
     	return 2*(max_.x - min_.x)+2*(max_.y - min_.y);
     }
-Rectangle::~Rectangle() {}
+Rectangle::~Rectangle() {}    

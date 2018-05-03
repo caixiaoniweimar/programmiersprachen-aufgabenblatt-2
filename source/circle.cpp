@@ -36,6 +36,6 @@ Circle::Circle(Circle const& c):
 // Eigenschaft: circumference
 	double Circle::circumference() const {
 		return  PI*2*radius_;
-	}
+	}    
 
 Circle::~Circle(){ }

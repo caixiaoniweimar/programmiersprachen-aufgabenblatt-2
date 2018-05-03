@@ -20,12 +20,12 @@ public:
   
     // Eigenschaft: circumference
     double circumference() const;
-    
+
 	~Rectangle();
 
 private:
 	Vec2 max_;
-	Vec2 min_;
+	Vec2 min_;    
 
 };
 #endif
