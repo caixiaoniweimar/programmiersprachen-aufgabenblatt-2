@@ -5,6 +5,8 @@
 #include "mat2.hpp"
 #include "circle.hpp"
 #include "rectangle.hpp"
+#include "color.hpp"
+
 // Test-Aufgabe 2.2
 TEST_CASE ("test_standardkonstruktor","[standardkonstruktor]"){ //Standardkonstruktor
     Vec2 v1;
@@ -215,7 +217,23 @@ TEST_CASE ("test_rotationmatrix","[rotationmatrix]"){
     REQUIRE(m2.arr[2]== Approx(0.8660254).epsilon(0.01));
     REQUIRE(m2.arr[3]== Approx(0.50).epsilon(0.01));
 }
-//Test-Aufgabe 2.8
+//Test-Aufgabe 2.7
+TEST_CASE("test_color","[color]"){
+    Color black{0.0};
+    Color red{1.0, 0.0, 0.0};
+    Color green{2.0, 2.0, 2.0};
+    REQUIRE(green.r==1.0f);
+    REQUIRE(green.h==1.0f);
+
+    REQUIRE(black.r==0.0f);
+    REQUIRE(black.h==0.0f);
+    REQUIRE(black.g==0.0f);
+    REQUIRE(red.r==1.0);
+    REQUIRE(red.h==0.0);
+    REQUIRE(red.g==0.0);
+}
+//Test-Aufgabe 2.8+2.9
+//const: diese Methode garantiert das keine Member geändert werden können.
 TEST_CASE ("test_circle","[circle]"){
     Circle c1;
     Circle(c2);
@@ -228,8 +246,10 @@ TEST_CASE ("test_circle","[circle]"){
     REQUIRE(c2.get_radius()==3.0);
     REQUIRE(c2.get_center().x==1.0);
     REQUIRE(c2.diameter()==6.0);
+    REQUIRE(c1.diameter()==2.0);
     REQUIRE(c2.area()==Approx(28.2743).epsilon(0.01));
-    REQUIRE(c2.circumference()==Approx(18.85).epsilon(0.01));
+    REQUIRE(c1.area()==Approx(3.14159).epsilon(0.01));
+    REQUIRE(c2.circumference()==Approx(18.85).epsilon(0.01)); // Test-Aufgabe 2.9
     REQUIRE(c1.circumference()==Approx(6.28).epsilon(0.01));
 }
 TEST_CASE ("test_rectangle","[rectangle]") {
@@ -246,7 +266,29 @@ TEST_CASE ("test_rectangle","[rectangle]") {
     REQUIRE(r2.circumference()==Approx(14.6).epsilon(0.01));
     REQUIRE(r1.circumference()==4.0);        
 }
-//Test-Aufgabe 2.9
+//Test-Aufgabe 2.13
+
+TEST_CASE("test_is_inside","[inside]"){
+    Circle(c1);
+    Vec2 center1{40,40};
+    c1.set_center(center1);
+    c1.set_radius(10.0);
+    Vec2 punkt1{100,100};
+    Vec2 punkt2{43,43};
+    c1.is_inside(punkt1);
+    c1.is_inside(punkt2);
+
+    Rectangle r1;
+    Rectangle r2(r1);
+    Vec2 max2{6.5,4.9};
+    Vec2 min2{3.7,0.4};
+    r2.set_Max(max2);
+    r2.set_Min(min2);
+    Vec2 punkt3{50,50};
+    Vec2 punkt4{3.9,0.6};
+    REQUIRE(r2.is_inside(punkt3)==false);
+    REQUIRE(r2.is_inside(punkt4)==true);
+}
 
 
 
