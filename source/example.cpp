@@ -4,7 +4,10 @@
 #include <cmath>
 #include "circle.hpp"
 #include "rectangle.hpp"
+#include "color.hpp"
+#include <vector>   
 #define PI 3.14
+
 int main(int argc, char* argv[])
 {
   Window win{std::make_pair(800,800)};
@@ -51,7 +54,7 @@ int main(int argc, char* argv[])
     Circle(c1);
     Vec2 center1{400,400};
     c1.set_center(center1);
-    c1.set_radius(380.0);
+    c1.set_radius(140.0);
     c1.draw(win);
 
 //  Aufgabe 1.11 - draw rectangle
@@ -78,12 +81,30 @@ int main(int argc, char* argv[])
     r2.set_Min(min2);
     r2.draw(win,red);
 
+// Aufgabe 1.13 - Mauszeigerposition
+    Vec2 pos1{ (float)m.first, (float)m.second };
+    Color blue{0.0f,0.0f,1.0f};
+    std::vector<Circle> circ{ c1,c2 };
+    for( Circle cir : circ){
+        if(cir.is_inside(pos1)==true){
+            cir.draw(win,blue);
+        }
+    }
+
+    Vec2 pos{ (float)m.first, (float)m.second };
+    std::vector<Rectangle> vect{ r1,r2};
+    for( Rectangle objekt : vect){
+        if (objekt.is_inside(pos)==true){
+            objekt.draw(win,blue);
+        }
+    }
+
 // Aufgabe 1.14 - Analoguhr
     Circle(c3);
     Color color{0.0,1.0,1.0};
     Vec2 center3{400,400};
     c3.set_center(center3);
-    c3.set_radius(140.0);
+    c3.set_radius(380.0);
     c3.draw(win,color);
 
     int sekunden=0;
