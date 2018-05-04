@@ -3,7 +3,7 @@
 #include "vec2.hpp"
 #include "color.hpp"
 #include "window.hpp"
-
+#include <vector> 
 class Rectangle
 {
 public:
@@ -29,6 +29,10 @@ public:
 
     // draw Methode - Aufgabe 2.12
     void draw(Window const& win, Color const& col) const;
+
+    // Aufgabe 1.13 Methode is_inside
+    float vergleichen(Vec2 const& p1, Vec2 const& p2, Vec2 const& p) const;
+    bool is_inside(Vec2 const& vec) const;
 
 	~Rectangle();
 

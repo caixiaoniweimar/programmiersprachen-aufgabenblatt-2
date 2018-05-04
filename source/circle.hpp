@@ -3,6 +3,7 @@
 #include "vec2.hpp"
 #include "color.hpp"
 #include "window.hpp"
+#include <vector>
 
 class Circle{
 	public:
@@ -33,12 +34,15 @@ class Circle{
 		// draw Methode - Aufgabe 2.12
 		void draw(Window const& win, Color const& col) const;
 
+		// Aufgabe 1.13 Methode is_inside
+		bool is_inside(Vec2 const& vec) const;
+
 		~Circle();
+		Color color_;
 
 	private:
 		double radius_;   
 		Vec2 center_;
-		Color color_;
 };
 //immer vergessen #endif Error!
 #endif 
